@@ -22,7 +22,6 @@
 static int max_games;
 static char *rompath, *wavpath;
 int booted = 0;
-void *m1ui_this;
 
 static int m1ui_message(void *this, int message, char *txt, int iparm);
 
