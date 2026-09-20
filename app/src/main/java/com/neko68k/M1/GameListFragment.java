@@ -53,9 +53,7 @@ public class GameListFragment extends FragmentActivity implements
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle item selection
-		switch (item.getItemId()) {
-		case R.id.sortOptions:
+		if (item.getItemId() == R.id.sortOptions) {
 			GameListOptionsActivity newFragment = new GameListOptionsActivity();
 			// args.putInt(GameListOptionsActivity.ARG_POSITION, position);
 			// newFragment.setArguments(args);
@@ -72,11 +70,9 @@ public class GameListFragment extends FragmentActivity implements
 
 			// Commit the transaction
 			transaction.commit();
-
-		default:
-
-			return super.onOptionsItemSelected(item);
 		}
+
+		return super.onOptionsItemSelected(item);
 	}
 	
 	public void onOptionsChanged(Bundle b){

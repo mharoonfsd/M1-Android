@@ -585,29 +585,25 @@ public class M1Android extends Activity implements FileBrowser.FBCallback{
 	public boolean onOptionsItemSelected(MenuItem item) {
 		Intent intent;
 		InitM1Task task;
-		// Handle item selection
-		switch (item.getItemId()) {
-		case R.id.open:
-
+		int itemId = item.getItemId();
+		if (itemId == R.id.open) {
 			NDKBridge.loadError = false;
 			intent = new Intent(this, GameListFragment.class);
 			startActivityForResult(intent, 1);
 			return true;
-		case R.id.options:
+		} else if (itemId == R.id.options) {
 			intent = new Intent(this, Prefs.class);
 			startActivityForResult(intent, 2);
 			return true;			
-		case R.id.rescan:
+		} else if (itemId == R.id.rescan) {
 			SQLiteDatabase db = NDKBridge.m1db.getWritableDatabase();
 			GameListOpenHelper.wipeTables(db);
 			task = new InitM1Task(NDKBridge.ctx);
 			task.execute();
 			return true;
-
-		default:
-
-			return super.onOptionsItemSelected(item);
 		}
+
+		return super.onOptionsItemSelected(item);
 	}
 public void selected() {
 	SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(NDKBridge.ctx);
