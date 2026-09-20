@@ -1,25 +1,24 @@
 workflows:
-  android-debug:
-    name: M1 Android debug
-    max_build_duration: 60
-    instance_type: linux_x2
-    environment:
-      java: 17
+  m1-android-debug:
+    name: M1 Android Debug
+    max_build_duration: 120
+
     scripts:
-      - name: Configure Android SDK
+      - name: Set Android SDK location
         script: |
-          printf 'sdk.dir=%s\n' "$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
-      - name: Build debug APK
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
+
+      - name: Show Java version
         script: |
-          chmod +x ./gradlew
-          ./gradlew --no-daemon --stacktrace :app:assembleDebug
+          java -version
+
+      - name: Show Gradle version
+        script: |
+          ./gradlew --version
+
+      - name: Build M1 debug APK
+        script: |
+          ./gradlew assembleDebug --stacktrace
+
     artifacts:
-      - app/build/outputs/apk/debug/*.apk
-      - app/build/outputs/mapping/debug/**
-    publishing:
-      email:
-        recipients:
-          - $CM_COMMIT_AUTHOR_EMAIL
-        notify:
-          success: true
-          failure: true
+      - app/build/outputs/**/*.apk
