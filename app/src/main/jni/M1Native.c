@@ -9,6 +9,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <dirent.h>
+#include <unistd.h>
 
 #include "m1sdr_android.h"
 #include "m1ui.h"
