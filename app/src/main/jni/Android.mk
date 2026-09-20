@@ -111,7 +111,7 @@ LOCAL_SRC_FILES += cpu/m68kcpu.c cpu/m68kops.c
 LOCAL_SRC_FILES += cpu/m6800.c cpu/m6809.c cpu/m6502.c cpu/h6280.c cpu/i8039.c cpu/nec.c
 LOCAL_SRC_FILES += cpu/adsp2100.c cpu/m37710.c cpu/m37710o0.c cpu/m37710o1.c
 LOCAL_SRC_FILES += cpu/m37710o2.c cpu/m37710o3.c cpu/hd6309.c cpu/tms32010.c cpu/pic16c5x.c
-LOCAL_SRC_FILES += cpu/h83002.c cpu/h8periph.c cpu/tms32031.c cpu/2100dasm.c
+LOCAL_SRC_FILES += cpu/h83002.c cpu/h8periph.c cpu/tms32031.c
 LOCAL_SRC_FILES += cpu/i8085.c
 LOCAL_SRC_FILES += cpu/z80.c 
 
