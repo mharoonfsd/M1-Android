@@ -27,7 +27,7 @@
 //#include "macros.h"
 
 #include <assert.h>
-//#include <stdlib.h>
+#include <stdlib.h>
 #include <string.h>
 
 unsigned int READ_UINT32(const uint8_t* data)
