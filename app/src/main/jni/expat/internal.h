@@ -26,9 +26,17 @@
    #define FASTCALL __attribute__((stdcall, regparm(3)))
    and let's try this:
 */
+#if defined(__i386__) || defined(__x86_64__)
 #define FASTCALL __attribute__((regparm(3)))
+#else
+#define FASTCALL
+#endif
 #define PTRCALL
+#if defined(__i386__) || defined(__x86_64__)
 #define PTRFASTCALL __attribute__((regparm(3)))
+#else
+#define PTRFASTCALL
+#endif
 
 #elif defined(WIN32)
 /* Using __fastcall seems to have an unexpected negative effect under
